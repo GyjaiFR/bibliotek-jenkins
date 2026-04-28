@@ -20,7 +20,7 @@ pipeline {
                 dir('bibliotek-angular') {
                     sh 'npm install'
 
-                    withSonarQubeEnv('sonar-id') {
+                    withSonarQubeEnv('sonar') {
                         sh './node_modules/.bin/sonar-scanner -Dsonar.projectKey=bibliotek-angular'
                     }
 
