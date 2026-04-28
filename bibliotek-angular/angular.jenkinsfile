@@ -17,7 +17,7 @@ pipeline {
             }
 
             steps {
-                // dir('ANGULAR/quest-angular') {
+                dir('bibliotek-angular') {
                     sh 'npm install'
 
                     withSonarQubeEnv('sonar-id') {
@@ -26,15 +26,15 @@ pipeline {
 
                     sh './node_modules/.bin/ng build'
                 }
-            // }
+            }
         }
 
         stage('Docker build') {
             steps {
-                // dir('ANGULAR/quest-angular') {
+                dir('bibliotek-angular') {
                     sh 'docker build -t bib/bib-angular .'
                 }
-            // }
+            }
         }
 
         stage('Docker deploy') {
